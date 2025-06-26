@@ -6,9 +6,9 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 //import React from "react";
-import {
+ import {
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
@@ -28,7 +28,7 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils - Light Mode";
+      //document.title = "TextUtils - Light Mode";
       //setInterval(() => {
       //  document.title = 'TextUtils is Amazing Mode';
       //}, 2000);
@@ -39,7 +39,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#02213d";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
+     // document.title = "TextUtils - Dark Mode";
     }
   };
   return (
@@ -47,20 +47,20 @@ function App() {
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
-          <Routes>
+         <Routes>
             <Route
               exact
               path="/"
-              element={
+              element={ 
                 <TextForm
                   showAlert={showAlert}
-                  heading="Enter the text to analyze below"
+                  heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces"
                   mode={mode}
                 />
               }
-            />
-            <Route exact path="/about" element={<About mode={mode} />} />
-          </Routes>
+            /> 
+           <Route exact path="/about" element={<About mode={mode} />} /> 
+          </Routes> 
         </div>
     </>
   );
